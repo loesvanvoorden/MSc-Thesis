@@ -1,4 +1,4 @@
-# FinalThesisDeliverables_LoesVanVoorden_2055036
+# Thesis Deliverables Loes van Voorden
 
 Master's thesis deliverables (MSc Data Science in Business and Entrepreneurship). Monorepo with three main parts: thesis document, KAN training pipeline, and clinician study interface.
 
