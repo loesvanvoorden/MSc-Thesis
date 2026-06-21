@@ -1,7 +1,0 @@
-Wat betekent dit voor deze patiënt — volgens het model?
-
-De voorspelde kans op intrahospitaal overlijden bedraagt 66,4%. Metingen als ademfrequentie en bicarbonaat trekken de risicoschatting vooral omhoog, terwijl een hogere SpO₂ en normale trombocyten- en chloridewaarden deze juist naar beneden bijstellen.
-
-Dit is een correlatieve inschatting gebaseerd op patronen in historische IC-gegevens en zegt niet dat één enkele meting de uitkomst veroorzaakt. De 66,4% is een modelschatting en geen klinisch behandeladvies. Interpretatie van deze schatting vereist altijd de volledige klinische context, omdat samenhang in retrospectieve data geen causaliteit oplevert. Bovendien spelen niet-gemeten factoren en individuele patiëntvariatie een rol. Dit soort model-uitleg kan echter wel helpen om de besluitvorming te ondersteunen door inzichtelijk en transparant te maken waarop een algoritme zijn uitspraak baseert. Zo kunnen clinici beter beoordelen wanneer de uitkomst betrouwbaar is of juist nader onderzoek verdient.
-
-Opvallend is dat de bicarbonaatwaarde binnen de normale referentie valt, maar toch bijdraagt aan een hogere voorspelde kans. Mogelijk weerspiegelt dit dat patiënten met vergelijkbare normale bicarbonaatwaarden in de historische data vaker een complexe beloop hadden dat niet direct af te leiden is uit één laboratoriumwaarde. Hierdoor ziet het model zulke ‘normale’ waarden soms als waarschuwingssignaal in de context van andere metingen.
