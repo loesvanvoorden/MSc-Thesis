@@ -1,0 +1,524 @@
+{% extends "base.html" %}
+{% set title = "Stap 3 – Modeluitleg" %}
+
+{% block content %}
+
+<!-- Stap-indicator -->
+<div class="step-bar">
+  <span class="step-pill step-done">
+    <span class="step-num">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="3"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </span> Patiëntprofiel
+  </span>
+  <span class="step-sep"><i data-lucide="chevron-right"></i></span>
+  <span class="step-pill step-done">
+    <span class="step-num">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="3"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </span> Voorspelling
+  </span>
+  <span class="step-sep"><i data-lucide="chevron-right"></i></span>
+  <span class="step-pill step-active">
+    <span class="step-num">3</span> Uitleg
+  </span>
+</div>
+
+<!-- Instructie -->
+<div class="card card-tinted" style="margin-bottom: 0;">
+  <div style="font-size: 13px; color: var(--gray-700); line-height: 1.6;">
+    <strong>Stap 3 van 3.</strong>
+    Hieronder ziet u de modeluitleg voor deze patiënt.
+    Geef daarna uw definitieve inschatting.
+  </div>
+</div>
+
+<!-- Patiënt- + uitslag-herinnering -->
+<div class="card">
+  <div class="patient-header">
+    <div>
+      <div class="patient-name">Patiënt #{{ patient_id }}</div>
+      <div class="patient-meta">
+        {{ leeftijd }} jaar &nbsp;&middot;&nbsp; {{ geslacht }}
+        &nbsp;&middot;&nbsp; {{ gewicht }} kg
+        {% if etniciteit and etniciteit != 'Onbekend' %}&nbsp;&middot;&nbsp; {{ etniciteit }}{% endif %}
+      </div>
+    </div>
+    <div class="severity-scores">
+      <div class="severity-label">Modelschatting</div>
+      <div class="severity-value">
+        P(sterfte)&nbsp;=&nbsp;<strong>{{ prob_mort }}&thinsp;%</strong>
+        &nbsp;·&nbsp;
+        {% if hoog_risico %}
+        <span style="color:#b91c1c;">Verhoogd</span>
+        {% else %}
+        <span style="color:#15803d;">Niet verhoogd</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if llm_aan %}
+<div class="stap3-deferred-wrap">
+  <div id="stap3-loading-overlay"
+       class="stap3-loading-overlay"
+       role="status"
+       aria-busy="true"
+       aria-live="polite"
+       aria-label="Toelichting wordt geladen">
+    <div class="stap3-loading-card">
+      <div class="stap3-loading-spinner" aria-hidden="true"></div>
+      <p class="stap3-loading-title">Toelichting wordt geladen…</p>
+      <p class="stap3-loading-hint">
+        Eén korte tekstuitleg bij de modeluitleg wordt gegenereerd. Dit kan tot ongeveer een halve minuut duren.
+      </p>
+    </div>
+  </div>
+{% endif %}
+
+<!-- Modeluitleg (detailpanelen) -->
+<div class="card">
+  <div class="card-title">Modeluitleg</div>
+  <div class="chart-caption">
+    Het model voorspelt de kans op sterfte in het ziekenhuis op basis van patiëntspecifieke gegevens.
+    Hieronder ziet u twaalf patiëntgegevens die via de bijbehorende modelfunctie het sterkst bijdroegen
+    aan de voorspelling voor deze patiënt (één grafiek per gegeven).
+    De horizontale as toont de meetwaarde; de verticale as toont de bijdrage van die waarde aan het advies:
+    <span style="color:#ef4444;font-weight:600;">rood (boven nul)</span> verhoogt het mortaliteitsrisico,
+    <span style="color:#3b82f6;font-weight:600;">blauw (onder nul)</span> verlaagt het.
+    De <span style="color:#7c3aed;font-weight:600;">paarse markering</span> geeft de werkelijke waarde van déze patiënt aan.
+  </div>
+  <img src="data:image/png;base64,{{ context_chart_b64 }}"
+       alt="Modeluitleg — detail per patiëntgegeven"
+       style="max-width:100%; border-radius:6px;">
+  {% include "_glossary.html" %}
+</div>
+
+{% if llm_aan %}
+<div class="card card--llm llm-explanation-block" id="llm-card-3">
+  <div class="llm-header">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="2.2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+    </svg>
+    Toelichting
+  </div>
+  <div class="llm-messages llm-messages--static" id="llm-messages-3">
+    <div class="llm-message llm-message--assistant llm-loading" id="llm-loading-3" aria-live="polite">
+      Toelichting laden…
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     Toelichting styles (groep B)
+════════════════════════════════════════════════════════════════════════════ -->
+<style>
+/* Stap 3 — volledige pagina-laag tot LLM-toelichting klaar is (groep B) */
+.stap3-deferred-wrap {
+  position: relative;
+  /* Overlay uses fixed positioning — min-height keeps layout stable before intros load */
+  min-height: 52vh;
+}
+/* Fixed to viewport so scrolling the page does not leave the spinner behind */
+.stap3-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(248, 250, 252, 0.94);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 0;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.stap3-loading-overlay.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.stap3-loading-card {
+  text-align: center;
+  max-width: 22rem;
+  padding: 1.5rem 1.75rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(30, 46, 114, 0.08);
+}
+.stap3-loading-title {
+  margin: 1rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.stap3-loading-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--gray-600);
+}
+.stap3-loading-spinner {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  border: 3px solid #e2e8f0;
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: stap3-spin 0.8s linear infinite;
+}
+@keyframes stap3-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toelichting — full width below modeluitleg */
+.llm-explanation-block {
+  margin-bottom: 1.1rem;
+  background: #eef2ff !important;
+  border-left: 3px solid var(--navy) !important;
+  border-top: 1px solid #c7d2fe;
+  border-right: 1px solid #c7d2fe;
+  border-bottom: 1px solid #c7d2fe;
+  padding: 16px 18px;
+  box-sizing: border-box;
+}
+.llm-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  padding-bottom: 10px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+.llm-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0 4px;
+}
+.llm-messages--static {
+  overflow: visible;
+}
+/* Message bubbles */
+.llm-message {
+  font-size: 14px;
+  line-height: 1.75;
+  padding: 12px 14px;
+  border-radius: 8px;
+  word-break: break-word;
+}
+.llm-message--assistant {
+  background: transparent;
+  color: #1e2e72;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+.llm-message--assistant .expl-section {
+  margin-bottom: 14px;
+}
+.llm-message--assistant .expl-section:last-child {
+  margin-bottom: 0;
+}
+.llm-message--assistant .expl-head {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+.llm-message--assistant p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.llm-message--assistant.llm-message--rich {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.llm-message--assistant.llm-message--rich strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+.llm-message--assistant.llm-message--attachments {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+.llm-chat-figure {
+  margin: 0 0 12px;
+}
+.llm-chat-figure:last-child {
+  margin-bottom: 0;
+}
+.llm-inline-spline {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+.llm-chat-figure figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.35;
+}
+.llm-loading {
+  color: var(--gray-500);
+  font-style: italic;
+}
+.llm-message--error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CAS Likert — compact cluster (no flex:1 stretching) */
+.cas-likert-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.cas-likert-scale {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.cas-likert-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.cas-likert-opt input {
+  accent-color: var(--navy);
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+.cas-likert-num {
+  font-size: .75rem;
+  color: var(--gray-500);
+  line-height: 1;
+}
+.cas-likert-anchor {
+  font-size: .72rem;
+  color: var(--gray-400);
+  white-space: nowrap;
+  padding-bottom: 3px;
+}
+</style>
+
+
+<!-- ── Beslissingsvraag ───────────────────────────────────────────────── -->
+<form method="post" action="/stap/3">
+
+  <div class="card">
+    <div class="card-title">Uw definitieve klinische inschatting</div>
+
+    <div class="form-question">
+      Wat is uw definitieve inschatting van het risico dat deze patiënt <strong>tijdens deze ziekenhuisopname</strong> overlijdt,
+      na het bekijken van alle informatie?
+    </div>
+    <div class="radio-group">
+      {% for optie in ["Laag risico", "Matig risico", "Hoog risico", "Onzeker"] %}
+      <label class="radio-label">
+        <input type="radio" name="risico" value="{{ optie }}" required
+               {% if prev_answers.get("risico") == optie %}checked{% endif %}>
+        <span>{{ optie }}</span>
+      </label>
+      {% endfor %}
+    </div>
+
+    <div class="form-question" style="margin-top: 20px;">
+      Welke interventies zijn op z'n plaats bij deze patiënt?
+    </div>
+    <textarea name="handelen" rows="3" placeholder="Beschrijf uw beleid voor deze patiënt…"
+              class="form-textarea" required>{{ prev_answers.get("handelen", "") }}</textarea>
+
+    <div class="form-question" style="margin-top: 20px;">
+      Heeft de modeluitleg uw definitieve beslissing beïnvloed?
+    </div>
+    <textarea name="notities" rows="3" placeholder="Noteer hier uw definitieve overwegingen…"
+              class="form-textarea" required>{{ prev_answers.get("notities", "") }}</textarea>
+
+  </div>
+
+  {# ── Causal Attribution Scale ─────────────────────────────────────────── #}
+  {% set cas_items = [
+    (1, "Als de ademfrequentie van deze patiënt morgen normaliseert, verwacht ik op basis van de modeluitleg dat de sterftekans afneemt."),
+    (2, "Mijn klinische oordeel over wat bij déze patiënt het meest urgent is, hoeft niet overeen te komen met wat het model het zwaarst benadrukt."),
+    (3, "Het model heeft geleerd welke kenmerken sterfte bij IC-patiënten veroorzaken."),
+    (4, "Een kenmerk dat hoog scoort in de uitleg kan dat doen doordat het samenvalt met algehele ziekteernst, zonder dat het de uitkomst zelf bepaalt."),
+    (5, "De meest benadrukte kenmerken zijn de meest zinvolle aanknopingspunten voor een behandelplan.")
+  ] %}
+
+  <div class="card" style="margin-top: 0;">
+    <div class="card-title">Stellingen over de modeluitleg</div>
+    <p style="font-size:.85rem; color:var(--gray-500); margin:0 0 20px;">
+      Geef aan in hoeverre u het eens bent met de volgende stellingen.
+      <br>
+      <span style="font-weight:600; color:var(--gray-700);">1</span> = helemaal mee oneens &nbsp;·&nbsp;
+      <span style="font-weight:600; color:var(--gray-700);">7</span> = helemaal mee eens
+    </p>
+
+    {% for num, stelling in cas_items %}
+    <div style="margin-bottom: 22px;">
+      <div class="form-question" style="margin-bottom: 10px;">
+        {{ loop.index }}. {{ stelling }}
+      </div>
+      <div class="cas-likert-row">
+        <span class="cas-likert-anchor">Oneens</span>
+        <div class="cas-likert-scale" role="group" aria-label="Schaal 1 tot 7">
+          {% for val in range(1, 8) %}
+          <label class="cas-likert-opt">
+            <input type="radio" name="cas{{ num }}" value="{{ val }}" required
+                   {% if prev_answers.get("cas" ~ num) == val|string %}checked{% endif %}>
+            <span class="cas-likert-num">{{ val }}</span>
+          </label>
+          {% endfor %}
+        </div>
+        <span class="cas-likert-anchor">Eens</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="card" style="margin-top:0;">
+    <div class="btn-row" style="justify-content: space-between;">
+      <a href="/stap/2" class="btn btn-secondary">
+        <i data-lucide="chevron-left" style="width:16px;height:16px;margin-right:4px;"></i>
+        Vorige stap
+      </a>
+      <button type="submit" class="btn btn-primary">
+        Afronden
+        <i data-lucide="check" style="width:16px;height:16px;margin-left:4px;"></i>
+      </button>
+    </div>
+  </div>
+
+  {# Groep B: LLM-toelichting wordt bij afronden meegestuurd. #}
+  <input type="hidden" name="llm_chats_json" id="llm-chats-json" value="">
+
+</form>
+
+{% if llm_aan %}
+</div>
+{% endif %}
+
+<script>
+(function () {
+  var root = document.getElementById('llm-card-3');
+  if (!root) return;
+
+  var introHistory = [];
+
+  function dismissPageLoading() {
+    var ov = document.getElementById('stap3-loading-overlay');
+    if (ov) {
+      ov.classList.add('is-done');
+      ov.setAttribute('aria-busy', 'false');
+    }
+  }
+
+  function escapeHtml(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function assistantToSafeHtml(raw) {
+    var esc = escapeHtml(raw);
+    esc = esc.replace(/\*\*([\s\S]*?)\*\*/g, '<strong>$1</strong>');
+    esc = esc.replace(/\*\*/g, '');
+    esc = esc.replace(/\n/g, '<br>');
+    return esc;
+  }
+
+  function appendBubble(container, role, text, isError) {
+    var div = document.createElement('div');
+    div.className = 'llm-message llm-message--' + (isError ? 'error' : role);
+    if (role === 'assistant' && !isError) {
+      div.className += ' llm-message--rich';
+      div.innerHTML = assistantToSafeHtml(text);
+    } else {
+      div.style.whiteSpace = 'pre-wrap';
+      div.textContent = text;
+    }
+    container.appendChild(div);
+  }
+
+  function fetchIntro() {
+    var msgs = document.getElementById('llm-messages-3');
+    var loading = document.getElementById('llm-loading-3');
+    return fetch('/api/llm/3/intro')
+      .then(function (r) {
+        return r.json().then(function (data) {
+          return { ok: r.ok, data: data };
+        });
+      })
+      .then(function (o) {
+        if (loading && loading.parentNode) loading.parentNode.removeChild(loading);
+        if (!o.ok) throw new Error(o.data.error || 'Onbekende fout');
+        var text = o.data.content || '';
+        appendBubble(msgs, 'assistant', text, false);
+        introHistory = [{ role: 'assistant', content: text }];
+      })
+      .catch(function (e) {
+        if (loading && loading.parentNode) loading.parentNode.removeChild(loading);
+        appendBubble(msgs, 'assistant', e.message || String(e), true);
+      });
+  }
+
+  fetchIntro().finally(dismissPageLoading);
+
+  var stapForm = document.querySelector('form[action="/stap/3"]');
+  if (stapForm) {
+    stapForm.addEventListener('submit', function () {
+      var hid = document.getElementById('llm-chats-json');
+      if (!hid) return;
+      try {
+        hid.value = JSON.stringify({ "3": introHistory });
+      } catch (err) {
+        hid.value = '';
+      }
+    });
+  }
+})();
+</script>
+
+{% endblock %}

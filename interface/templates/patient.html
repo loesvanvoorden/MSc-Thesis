@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% set title = "Patiënt #" ~ patient_id %}
+
+{% block content %}
+
+<!-- Stap-indicator -->
+<div class="step-bar">
+  <span class="step-pill step-active">
+    <span class="step-num">1</span> Patiëntprofiel
+  </span>
+  <span class="step-sep">
+    <i data-lucide="chevron-right"></i>
+  </span>
+  {% if llm_aan %}
+  <span class="step-pill step-pending">
+    <span class="step-num">2</span> Redeneer-vragen
+  </span>
+  <span class="step-sep">
+    <i data-lucide="chevron-right"></i>
+  </span>
+  <span class="step-pill step-pending">
+    <span class="step-num">3</span> Voorspelling
+  </span>
+  {% else %}
+  <span class="step-pill step-pending">
+    <span class="step-num">2</span> Voorspelling
+  </span>
+  {% endif %}
+</div>
+
+<!-- Header -->
+<div class="card">
+  <div class="patient-header">
+    <div>
+      <div class="patient-name">Patiënt #{{ patient_id }}</div>
+      <div class="patient-meta">
+        {{ leeftijd }} jaar &nbsp;&middot;&nbsp; {{ geslacht }}
+        &nbsp;&middot;&nbsp; {{ gewicht }} kg
+        {% if etniciteit and etniciteit != 'Onbekend' %}&nbsp;&middot;&nbsp; {{ etniciteit }}{% endif %}
+      </div>
+    </div>
+    <div class="severity-scores">
+      <div class="severity-label">Ernst-scores</div>
+      <div class="severity-value">SOFA&nbsp;{{ sofa }}&nbsp;&nbsp;|&nbsp;&nbsp;GCS&nbsp;{{ gcs }}</div>
+    </div>
+  </div>
+</div>
+
+<!-- Vitale functies -->
+<div class="card">
+  <div class="card-title">Vitale functies</div>
+  <div class="chip-row">
+    {% for v in vitals %}
+    <div class="chip">
+      <div class="chip-label">{{ v.label }}</div>
+      <div class="chip-value">
+        {{ v.value }}<span class="chip-unit"> {{ v.unit }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Laboratoriumwaarden -->
+<div class="card">
+  <div class="card-title">Laboratoriumwaarden</div>
+  <div class="chip-row">
+    {% for l in labs %}
+    <div class="chip">
+      <div class="chip-label">{{ l.label }}</div>
+      <div class="chip-value">{{ l.value }}{% if l.unit %}<span class="chip-unit"> {{ l.unit }}</span>{% endif %}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!-- Navigatie -->
+<div class="btn-row" style="margin-top:20px;">
+  {% if llm_aan %}
+  <a href="/patient/{{ patient_id }}/vragen" class="btn btn-primary">
+    Ga naar redeneer-vragen
+    <i data-lucide="chevron-right" style="width:16px;height:16px;margin-left:4px;"></i>
+  </a>
+  {% else %}
+  <a href="/patient/{{ patient_id }}/voorspelling" class="btn btn-primary">
+    Bekijk AI-voorspelling
+    <i data-lucide="chevron-right" style="width:16px;height:16px;margin-left:4px;"></i>
+  </a>
+  {% endif %}
+</div>
+
+{% endblock %}

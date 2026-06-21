@@ -1,0 +1,11 @@
+transfer_id,eventtype,careunit,intime,outtime,hours_in_unit
+37208060,ED,Emergency Department,2200-07-26T22:02:00,2200-07-27T11:27:45,13
+33975091,admit,Medicine/Cardiology,2200-07-27T11:27:45,2200-07-27T13:16:11,2
+34014453,transfer,Hematology/Oncology,2200-07-27T13:16:11,2200-07-27T16:19:22,3
+39093879,transfer,Emergency Department Observation,2200-07-27T16:19:22,2200-07-27T16:37:09,0
+33301092,transfer,Medical/Surgical Intensive Care Unit (MICU/SICU),2200-07-27T16:37:09,2200-07-27T19:14:46,3
+33271491,transfer,Medical/Surgical Intensive Care Unit (MICU/SICU),2200-07-27T19:14:46,2200-07-28T14:11:52,19
+36158942,transfer,Hematology/Oncology,2200-07-28T14:11:52,2200-07-31T15:04:54,73
+32808271,transfer,Hematology/Oncology,2200-07-31T15:04:54,2200-07-31T19:29:48,4
+35676599,transfer,Medical/Surgical Intensive Care Unit (MICU/SICU),2200-07-31T19:29:48,2200-08-03T23:57:45,76
+30000088,discharge,UNKNOWN,2200-08-03T23:57:45,,

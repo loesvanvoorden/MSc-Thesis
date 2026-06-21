@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% set title = "Studie afgerond" %}
+
+{% block content %}
+
+<div class="index-hero" style="margin-bottom: 0;">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <div style="background:var(--accent-light); border-radius:50%; width:44px; height:44px;
+                display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+           fill="none" stroke="var(--navy)" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div>
+      <h1 style="margin:0;">Bedankt voor uw deelname</h1>
+      <p style="margin:4px 0 0; font-size:14px; color:var(--gray-500);">
+        Uw antwoorden zijn opgeslagen. Hartelijk dank voor uw deelname!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Overzicht antwoorden -->
+<div class="card" style="margin-top: 24px;">
+  <div class="card-title">Samenvatting van uw antwoorden</div>
+
+  <table class="patient-table" style="margin-top: 8px;">
+    <thead>
+      <tr>
+        <th>Stap</th>
+        <th>Informatie gezien</th>
+        <th>Risico-inschatting</th>
+        <th>Beleid</th>
+        <th>Notities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Stap 1</strong></td>
+        <td>Patiëntprofiel</td>
+        <td>
+          <span class="flag {% if stap1.risico == 'Hoog risico' %}flag--active{% else %}flag--off{% endif %}">
+            {{ stap1.risico or '—' }}
+          </span>
+        </td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap1.handelen or '—' }}</td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap1.notities or '—' }}</td>
+      </tr>
+      <tr>
+        <td><strong>Stap 2</strong></td>
+        <td>+ Modelvoorspelling ({{ prob_mort }}&thinsp;%)</td>
+        <td>
+          <span class="flag {% if stap2.risico == 'Hoog risico' %}flag--active{% else %}flag--off{% endif %}">
+            {{ stap2.risico or '—' }}
+          </span>
+        </td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap2.handelen or '—' }}</td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap2.notities or '—' }}</td>
+      </tr>
+      <tr>
+        <td><strong>Stap 3</strong></td>
+        <td>+ KAN-uitleg</td>
+        <td>
+          <span class="flag {% if stap3.risico == 'Hoog risico' %}flag--active{% else %}flag--off{% endif %}">
+            {{ stap3.risico or '—' }}
+          </span>
+        </td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap3.handelen or '—' }}</td>
+        <td style="font-size:12px; color:var(--gray-600);">{{ stap3.notities or '—' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Conditie-samenvatting -->
+<div class="card card-tinted">
+  <div style="font-size: 13px; color: var(--gray-700); line-height: 1.6;">
+    <strong>Studiegroep:</strong>
+    {% if llm_aan %}Groep B{% else %}Groep A{% endif %}
+    &nbsp;·&nbsp;
+    <strong>Randpatiënt:</strong> #{{ patient_id }}
+    &nbsp;·&nbsp;
+    <strong>Voorspeld mortaliteitsrisico:</strong> {{ prob_mort }}&thinsp;%
+  </div>
+</div>
+
+<div class="btn-row" style="margin-top: 8px;">
+  {% if manager_preview %}
+  <a href="/" class="btn btn-secondary">
+    <i data-lucide="rotate-ccw" style="width:15px;height:15px;margin-right:6px;"></i>
+    Nieuwe sessie starten (preview)
+  </a>
+  {% endif %}
+</div>
+
+{% endblock %}

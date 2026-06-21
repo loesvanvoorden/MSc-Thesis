@@ -1,0 +1,347 @@
+\begin{thebibliography}{59}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Topol(2019)]{topol2019}
+Eric~J. Topol.
+\newblock High-performance medicine: the convergence of human and artificial intelligence.
+\newblock \emph{Nature Medicine}, 25\penalty0 (1):\penalty0 44--56, 2019.
+\newblock \doi{10.1038/s41591-018-0300-7}.
+
+\bibitem[Sahni et~al.(2023)]{sahni2023}
+Nikhil Sahni et~al.
+\newblock The potential impact of artificial intelligence on healthcare spending.
+\newblock \emph{NBER Working Paper}, 2023.
+\newblock Cited in arXiv:2502.09849.
+
+\bibitem[Tun et~al.(2025)]{tun2025trust}
+Hein~Minn Tun et~al.
+\newblock Trust in artificial intelligence-based clinical decision support systems among health care workers: Systematic review.
+\newblock \emph{Journal of Medical Internet Research}, 27:\penalty0 e69678, 2025.
+\newblock \doi{10.2196/69678}.
+
+\bibitem[Sun et~al.(2025)Sun, Kang, Zhang, Jia, and Wang]{sun2025mortality}
+H.~Sun, M.~Kang, H.~Zhang, J.~Jia, and Q.~Wang.
+\newblock Machine learning for predicting mortality in intensive care unit patients: A prognostic performance systematic review and meta-analysis.
+\newblock \emph{Nursing in Critical Care}, 2025.
+\newblock \doi{10.1111/nicc.70206}.
+
+\bibitem[Alghatani et~al.(2024)]{alghatani2024sepsis}
+Karim Alghatani et~al.
+\newblock Machine learning models in sepsis outcome prediction for {ICU} patients: Integrating routine laboratory tests---a systematic review.
+\newblock \emph{Biomedicines}, 12\penalty0 (12):\penalty0 2892, 2024.
+\newblock \doi{10.3390/biomedicines12122892}.
+
+\bibitem[Rudin(2019)]{rudin2019stop}
+Cynthia Rudin.
+\newblock Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead.
+\newblock \emph{Nature Machine Intelligence}, 1\penalty0 (5):\penalty0 206--215, 2019.
+\newblock \doi{10.1038/s42256-019-0048-x}.
+
+\bibitem[Ghassemi et~al.(2021)Ghassemi, Oakden-Rayner, and Beam]{ghassemi2021false}
+Marzyeh Ghassemi, Luke Oakden-Rayner, and Andrew~L. Beam.
+\newblock The false hope of current approaches to explainable artificial intelligence in health care.
+\newblock \emph{The Lancet Digital Health}, 3\penalty0 (11):\penalty0 e745--e750, 2021.
+\newblock \doi{10.1016/S2589-7500(21)00208-9}.
+
+\bibitem[Tonekaboni et~al.(2019)Tonekaboni, Joshi, McCradden, and Goldenberg]{tonekaboni2019clinicians}
+Sana Tonekaboni, Shalmali Joshi, Melissa~D. McCradden, and Anna Goldenberg.
+\newblock What clinicians want: Contextualizing explainable machine learning for clinical end use.
+\newblock In \emph{Proceedings of the 4th Machine Learning for Healthcare Conference}, volume 106 of \emph{Proceedings of Machine Learning Research}, pages 359--380. PMLR, 2019.
+
+\bibitem[Arrieta et~al.(2020)Arrieta, D{\'{i}}az-Rodr{\'{i}}guez, Ser, Bennetot, Tabik, Barbado, Garc{\'{i}}a, Gil-Lopez, Molina, Benjamins, Chatila, and Herrera]{arrieta2020xai}
+Alejandro~Barredo Arrieta, Natalia D{\'{i}}az-Rodr{\'{i}}guez, Javier~Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador Garc{\'{i}}a, Sergio Gil-Lopez, Daniel Molina, Richard Benjamins, Raja Chatila, and Francisco Herrera.
+\newblock Explainable artificial intelligence ({XAI}): Concepts, taxonomies, opportunities and challenges toward responsible {AI}.
+\newblock \emph{Information Fusion}, 58:\penalty0 82--115, 2020.
+\newblock \doi{10.1016/j.inffus.2019.12.012}.
+
+\bibitem[Adadi and Berrada(2018)]{adadi2018peeking}
+Amina Adadi and Mohammed Berrada.
+\newblock Peeking inside the black-box: A survey on explainable artificial intelligence ({XAI}).
+\newblock \emph{IEEE Access}, 6:\penalty0 52138--52160, 2018.
+\newblock \doi{10.1109/ACCESS.2018.2870052}.
+
+\bibitem[Liu et~al.(2024)Liu, Wang, Vaidya, Ruehle, Halverson, Solja{\v{c}}i{\'{c}}, and Tegmark]{liu2024kan}
+Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin Solja{\v{c}}i{\'{c}}, and Max Tegmark.
+\newblock {KAN}: Kolmogorov--arnold networks.
+\newblock \emph{arXiv preprint arXiv:2404.19756}, 2024.
+
+\bibitem[Liao et~al.(2020)Liao, Gruen, and Miller]{liao2020questioning}
+Q.~Vera Liao, Daniel Gruen, and Sarah Miller.
+\newblock Questioning the {AI}: Informing design practices for explainable {AI} user experiences.
+\newblock In \emph{Proceedings of the 2020 {CHI} Conference on Human Factors in Computing Systems}, CHI '20, pages 1--15. ACM, 2020.
+\newblock \doi{10.1145/3313831.3376590}.
+
+\bibitem[Liao and Varshney(2021)]{liaovarshney2021human}
+Q.~Vera Liao and Kush~R. Varshney.
+\newblock Human-centered explainable {AI} ({XAI}): From algorithms to user experiences.
+\newblock \emph{arXiv preprint arXiv:2110.10790}, 2021.
+
+\bibitem[Holzinger et~al.(2019)Holzinger, Langs, Denk, Zatloukal, and M{\"{u}}ller]{holzinger2019causability}
+Andreas Holzinger, Georg Langs, Helmut Denk, Kurt Zatloukal, and Heimo M{\"{u}}ller.
+\newblock Causability and explainability of artificial intelligence in medicine.
+\newblock \emph{Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery}, 9\penalty0 (4):\penalty0 e1312, 2019.
+\newblock \doi{10.1002/widm.1312}.
+
+\bibitem[Johnson et~al.(2023)Johnson, Bulgarelli, Shen, Gayles, Shammout, Horng, Pollard, Hao, Moody, Gow, Moody, Mark, and Celi]{johnson2023mimic}
+Alistair E.~W. Johnson, Lucas Bulgarelli, Lu~Shen, Alina Gayles, Ayad Shammout, Steven Horng, Tom~J. Pollard, Sicheng Hao, Benjamin Moody, Peter Gow, Benjamin~E. Moody, Roger~G. Mark, and Leo~A. Celi.
+\newblock {MIMIC-IV}, a freely accessible electronic health record dataset.
+\newblock \emph{Scientific Data}, 10\penalty0 (1):\penalty0 1, 2023.
+\newblock \doi{10.1038/s41597-022-01899-x}.
+
+\bibitem[Miller(2019)]{miller2019explanation}
+Tim Miller.
+\newblock Explanation in artificial intelligence: Insights from the social sciences.
+\newblock \emph{Artificial Intelligence}, 267:\penalty0 1--38, 2019.
+\newblock \doi{10.1016/j.artint.2018.07.007}.
+
+\bibitem[Bertrand et~al.(2024)]{bertrand2024posthoc}
+Quentin Bertrand et~al.
+\newblock Post hoc explainers {SHAP} and {LIME}: Pitfalls for scientific inference, 2024.
+
+\bibitem[Bansal et~al.(2021)Bansal, Wu, Zhou, Fok, Nushi, Kamar, Ribeiro, and Weld]{bansal2021does}
+Gagan Bansal, Tongshuang Wu, Joyce Zhou, Raymond Fok, Besmira Nushi, Ece Kamar, Marco~Tulio Ribeiro, and Daniel~S. Weld.
+\newblock Does the whole exceed its parts? {The} effect of {AI} explanations on complementary team performance.
+\newblock In \emph{Proceedings of the 2021 {CHI} Conference on Human Factors in Computing Systems}, CHI '21, pages 1--16. ACM, 2021.
+\newblock \doi{10.1145/3411764.3445717}.
+
+\bibitem[Bu{\c{c}}inca et~al.(2021)Bu{\c{c}}inca, Malaya, and Gajos]{bucinca2021trust}
+Zana Bu{\c{c}}inca, Maja~Barbara Malaya, and Krzysztof~Z. Gajos.
+\newblock To trust or to think: Cognitive forcing functions can reduce overreliance on {AI} in {AI}-assisted decision-making.
+\newblock \emph{Proceedings of the ACM on Human-Computer Interaction}, 5\penalty0 (CSCW1):\penalty0 1--21, 2021.
+\newblock \doi{10.1145/3449287}.
+
+\bibitem[He et~al.(2025)He, Aishwarya, and Gadiraju]{he2025conversational}
+Gaole He, Nilay Aishwarya, and Ujwal Gadiraju.
+\newblock Is conversational {XAI} all you need? {Human-AI} decision making with a conversational {XAI} assistant.
+\newblock In \emph{Proceedings of the 30th International Conference on Intelligent User Interfaces}, IUI '25, pages 907--924. ACM, 2025.
+\newblock \doi{10.1145/3708359.3712133}.
+
+\bibitem[Wachter et~al.(2017)Wachter, Mittelstadt, and Russell]{wachter2017counterfactual}
+Sandra Wachter, Brent Mittelstadt, and Chris Russell.
+\newblock Counterfactual explanations without opening the black box: Automated decisions and the {GDPR}.
+\newblock \emph{Harvard Journal of Law \& Technology}, 31\penalty0 (2):\penalty0 841--887, 2017.
+
+\bibitem[Karimi et~al.(2021)Karimi, Sch{\"o}lkopf, and Valera]{karimi2021algorithmic}
+Amir-Hossein Karimi, Bernhard Sch{\"o}lkopf, and Isabel Valera.
+\newblock Algorithmic recourse: from counterfactual explanations to interventions.
+\newblock In \emph{Proceedings of the 2021 {ACM} Conference on Fairness, Accountability, and Transparency}, FAccT '21, pages 353--362. ACM, 2021.
+\newblock \doi{10.1145/3442188.3445899}.
+
+\bibitem[Te{\v{s}}i{\'{c}} and Hahn(2022)]{tesic2022counterfactual}
+Marko Te{\v{s}}i{\'{c}} and Ulrike Hahn.
+\newblock Can counterfactual explanations of {AI} systems' predictions skew lay users' causal intuitions about the world? {If} so, can we correct for that?
+\newblock \emph{Patterns}, 3\penalty0 (12):\penalty0 100635, 2022.
+\newblock \doi{10.1016/j.patter.2022.100635}.
+
+\bibitem[Wang et~al.(2019)Wang, Yang, Abdul, and Lim]{wang2019designing}
+Danding Wang, Qian Yang, Ashraf Abdul, and Brian~Y. Lim.
+\newblock Designing theory-driven user-centric explainable {AI}.
+\newblock In \emph{Proceedings of the 2019 {CHI} Conference on Human Factors in Computing Systems}, CHI '19, pages 1--15. ACM, 2019.
+\newblock \doi{10.1145/3290605.3300831}.
+
+\bibitem[Janzing et~al.(2020)Janzing, Minorics, and Bloebaum]{janzing2020feature}
+Dominik Janzing, Lenon Minorics, and Patrick Bloebaum.
+\newblock Feature relevance quantification in explainable {AI}: A causal problem.
+\newblock In \emph{Proceedings of the 23rd International Conference on Artificial Intelligence and Statistics}, volume 108 of \emph{Proceedings of Machine Learning Research}, pages 2907--2916. PMLR, 2020.
+
+\bibitem[Dams et~al.(2025)Dams, Vergouwen, Evgeniou, Hinns, and Martens]{dams2025tell}
+Camille Dams, Mark Vergouwen, Theodoros Evgeniou, James Hinns, and David Martens.
+\newblock Tell me a story! {Narrative}-driven {XAI} with large language models.
+\newblock \emph{Decision Support Systems}, 2025.
+\newblock \doi{10.1016/j.dss.2025.114364}.
+
+\bibitem[Lee et~al.(2025)Lee, Cho, Lee, Kim, Nam, Lee, Suh, and Ko]{lee2025prompt}
+Sujung Lee, Won~Ik Cho, Youngrong Lee, Duck~Ju Kim, Kyeng~Hyun Nam, Sangmin Lee, Jungyo Suh, and Taehoon Ko.
+\newblock A prompt framework for enhancing {LLM}-based explainability of medical machine learning models: an intensive care unit application.
+\newblock \emph{BMC Medical Informatics and Decision Making}, 25\penalty0 (1):\penalty0 430, 2025.
+\newblock \doi{10.1186/s12911-025-03281-w}.
+
+\bibitem[{Authors listed on article PDF}(2025)]{comparison2025shap}
+{Authors listed on article PDF}.
+\newblock Comparison of {SHAP} and clinician friendly explanations reveals effects on clinical decision behaviour.
+\newblock \emph{npj Digital Medicine}, 2025.
+
+\bibitem[Nauta et~al.(2023)Nauta, Trienes, Pathak, Nguyen, Peters, Schmitt, Schl{\"{o}}tterer, van Keulen, and Seifert]{nauta2023anecdotal}
+Meike Nauta, Jan Trienes, Shreyasi Pathak, Elisa Nguyen, Michelle Peters, Yasmin Schmitt, J{\"{o}}rg Schl{\"{o}}tterer, Maurice van Keulen, and Christin Seifert.
+\newblock From anecdotal evidence to quantitative evaluation methods: A systematic review on evaluating explainable {AI}.
+\newblock \emph{ACM Computing Surveys}, 55:\penalty0 1--42, 2023.
+\newblock \doi{10.1145/3583558}.
+
+\bibitem[Bienefeld et~al.(2023)Bienefeld, Boss, L{\"u}thy, Brodbeck, Azzati, Blaser, Willms, and Keller]{bienefeld2023solving}
+Nadine Bienefeld, Jens~Michael Boss, Rahel L{\"u}thy, Dominique Brodbeck, Jan Azzati, Mirco Blaser, Jan Willms, and Emanuela Keller.
+\newblock Solving the explainable {AI} conundrum by bridging clinicians' needs and developers' goals.
+\newblock \emph{npj Digital Medicine}, 6\penalty0 (1):\penalty0 94, 2023.
+\newblock \doi{10.1038/s41746-023-00837-4}.
+
+\bibitem[Anjara et~al.(2023)Anjara, Janik, Dunford-Stenger, McKenzie, Collazo-Lorduy, Torrente, et~al.]{anjara2023examining}
+Sima~G. Anjara, Agnieszka Janik, Aoife Dunford-Stenger, K.~McKenzie, A.~Collazo-Lorduy, M.~Torrente, et~al.
+\newblock Examining explainable clinical decision support systems with think aloud protocols.
+\newblock \emph{PLOS ONE}, 18\penalty0 (9):\penalty0 e0291443, 2023.
+\newblock \doi{10.1371/journal.pone.0291443}.
+
+\bibitem[Bergomi et~al.(2025)Bergomi, Nicora, Orlowska, Podrecca, Bellazzi, Fregosi, et~al.]{bergomi2025which}
+Laura Bergomi, Giovanna Nicora, Marta~Anna Orlowska, Chiara Podrecca, Riccardo Bellazzi, Caterina Fregosi, et~al.
+\newblock Which explanations do clinicians prefer? {A} comparative evaluation of {XAI} understandability and actionability in predicting the need for hospitalization.
+\newblock \emph{BMC Medical Informatics and Decision Making}, 25:\penalty0 269, 2025.
+\newblock \doi{10.1186/s12911-025-02814-7}.
+
+\bibitem[Keane and Smyth(2020)]{keane2020good}
+Mark~T. Keane and Barry Smyth.
+\newblock Good counterfactuals and where to find them: A case-based technique for generating counterfactuals for explainable {AI} ({XAI}).
+\newblock In \emph{Proceedings of the 28th International Conference on Case-Based Reasoning}, ICCBR 2020, pages 163--178. Springer, 2020.
+\newblock \doi{10.1007/978-3-030-58342-2_11}.
+
+\bibitem[Chukwu et~al.(2025)Chukwu, Schouten, Tabak, and Pechenizkiy]{chukwu2025counterfactual}
+Emmanuel~C. Chukwu, Rianne~M. Schouten, Monique Tabak, and Mykola Pechenizkiy.
+\newblock Counterfactual explanations for time series should be human-centered and temporally coherent in interventions, 2025.
+
+\bibitem[Doshi-Velez and Kim(2017)]{doshivelez2017rigorous}
+Finale Doshi-Velez and Been Kim.
+\newblock Towards a rigorous science of interpretable machine learning, 2017.
+
+\bibitem[Omar et~al.(2025)Omar, Sorin, and {others}]{omar2025hallucination}
+Mahmud Omar, Vera Sorin, and Jeremy~D. {others}.
+\newblock Multi-model assurance analysis showing large language models are highly vulnerable to adversarial hallucination attacks during clinical decision support.
+\newblock \emph{Communications Medicine}, 2025.
+
+\bibitem[Bdawood et~al.(2025)]{bdawood2025framework}
+Abdulaziz Bdawood et~al.
+\newblock A framework to assess clinical safety and hallucination rates of {LLMs} for medical text summarisation.
+\newblock \emph{npj Digital Medicine}, 2025.
+\newblock \doi{10.1038/s41746-025-01670-7}.
+
+\bibitem[Maathuis et~al.(2025)Maathuis, Kolkman, Leijnen, and Sent]{maathuis2025patterns}
+Henry Maathuis, Daan Kolkman, Stefan Leijnen, and Danielle Sent.
+\newblock Formalizing explanation design through interaction patterns in human-{AI} decision support.
+\newblock In \emph{Proceedings of the 4th International Conference on Hybrid Human-Artificial Intelligence}, HHAI 2025, pages 262--276. IOS Press, 2025.
+\newblock \doi{10.3233/FAIA250644}.
+
+\bibitem[Bertrand et~al.(2022)Bertrand, Belloum, Eagan, and Maxwell]{bertrand2022biases}
+Astrid Bertrand, Rafik Belloum, James~R. Eagan, and Winston Maxwell.
+\newblock How cognitive biases affect {XAI}-assisted decision-making: A systematic review.
+\newblock In \emph{Proceedings of the 2022 {AAAI/ACM} Conference on {AI}, Ethics, and Society}, AIES '22. ACM, 2022.
+\newblock \doi{10.1145/3514094.3534164}.
+
+\bibitem[Lee et~al.(2020)Lee, Yoon, Kim, Kim, Kim, So, and Kang]{lee2020biobert}
+Jinhyuk Lee, Wonjin Yoon, Sungdong Kim, Donghyeon Kim, Sunkyu Kim, Chan~Ho So, and Jaewoo Kang.
+\newblock {BioBERT}: a pre-trained biomedical language representation model for biomedical text mining.
+\newblock \emph{Bioinformatics}, 36\penalty0 (4):\penalty0 1234--1240, 2020.
+\newblock \doi{10.1093/bioinformatics/btz682}.
+
+\bibitem[Luo et~al.(2022)Luo, Sun, Xia, Qin, Zhang, Poon, and Liu]{luo2022biogpt}
+Renqian Luo, Liai Sun, Yingce Xia, Tao Qin, Sheng Zhang, Hoifung Poon, and Tie-Yan Liu.
+\newblock {BioGPT}: generative pre-trained transformer for biomedical text generation and mining.
+\newblock \emph{Briefings in Bioinformatics}, 23\penalty0 (6):\penalty0 bbac409, 2022.
+\newblock \doi{10.1093/bib/bbac409}.
+
+\bibitem[Nori et~al.(2023)Nori, King, McKinney, Carignan, and Horvitz]{nori2023gpt4}
+Harsha Nori, Nicholas King, Scott~Mayer McKinney, Dean Carignan, and Eric Horvitz.
+\newblock Capabilities of {GPT-4} on medical challenge problems.
+\newblock \emph{arXiv preprint arXiv:2303.13375}, 2023.
+\newblock \doi{10.48550/arXiv.2303.13375}.
+
+\bibitem[Sandmann et~al.(2025)Sandmann, Hegselmann, Fujarski, Bickmann, et~al.]{sandmann2025deepseek}
+Sarah Sandmann, Stefan Hegselmann, Michael Fujarski, Lucas Bickmann, et~al.
+\newblock Benchmark evaluation of {DeepSeek} large language models in clinical decision-making.
+\newblock \emph{Nature Medicine}, 31:\penalty0 2546--2549, 2025.
+\newblock \doi{10.1038/s41591-025-03727-2}.
+
+\bibitem[Rubinstein et~al.(2025)Rubinstein, Mohsin, Banerjee, et~al.]{rubinstein2025synopses}
+Samuel Rubinstein, Areeba Mohsin, Rupali Banerjee, et~al.
+\newblock Summarizing clinical evidence utilizing large language models for cancer treatments: a blinded comparative analysis.
+\newblock \emph{Frontiers in Digital Health}, 7:\penalty0 1569554, 2025.
+\newblock \doi{10.3389/fdgth.2025.1569554}.
+
+\bibitem[Hassani et~al.(2025)]{hassani2025documentation}
+Mohammad Hassani et~al.
+\newblock Evaluating the efficacy of large language models in generating medical documentation: A comparative study of {ChatGPT-4}, {ChatGPT-4o}, and {Claude}.
+\newblock \emph{Journal of Medical Systems}, 49\penalty0 (1):\penalty0 2, 2025.
+\newblock \doi{10.1007/s10916-024-02045-3}.
+
+\bibitem[Saeki et~al.(2024)Saeki, Kato, Nakajima, et~al.]{saeki2024diagnosis}
+Yoshitaka Saeki, Ryo Kato, Yuki Nakajima, et~al.
+\newblock Diagnostic performances of {GPT-4o}, {Claude} 3 {Opus}, and {Gemini} 1.5 {Pro} in ``{Diagnosis Please}'' cases.
+\newblock \emph{Japanese Journal of Radiology}, 42\penalty0 (11):\penalty0 1231--1235, 2024.
+\newblock \doi{10.1007/s11604-024-01619-y}.
+
+\bibitem[Naemi and Sahafi(2025)]{naemi2025mimic}
+Amin Naemi and Ali Sahafi.
+\newblock Benchmarking large language models for {MIMIC-IV} clinical note summarization.
+\newblock \emph{Journal of Healthcare Informatics Research}, 10\penalty0 (1):\penalty0 95--115, 2025.
+\newblock \doi{10.1007/s41666-025-00221-9}.
+
+\bibitem[Jin et~al.(2021)Jin, Pan, Oufattole, Weng, Fang, Strimel, Gao, and Szolovits]{jin2021disease}
+Di~Jin, Eileen Pan, Nassim Oufattole, Wei-Hung Weng, Hanyi Fang, Grant~P. Strimel, Jianfeng Gao, and Peter Szolovits.
+\newblock What disease does this patient have? {A} large-scale open domain question answering dataset from medical exams.
+\newblock \emph{Applied Sciences}, 11\penalty0 (14):\penalty0 6421, 2021.
+\newblock \doi{10.3390/app11146421}.
+
+\bibitem[Wu et~al.(2025)Wu, Wu, Hom, et~al.]{wu2025medarena}
+Eric Wu, Kevin Wu, Jason Hom, et~al.
+\newblock Medarena: Comparing {LLMs} for medicine-in-the-wild clinician preferences.
+\newblock \emph{arXiv preprint arXiv:2504.20879}, 2025.
+\newblock \doi{10.48550/arXiv.2504.20879}.
+
+\bibitem[Wang et~al.(2026)Wang, Xiong, Zou, Srinivasan, Lo, Wu, Liu, et~al.]{wang2026reasoningmed}
+Xiaofei Wang, Zhuxin Xiong, Ke~Zou, Sahana Srinivasan, Thaddaeus Wai~Soon Lo, Yilan Wu, Nan Liu, et~al.
+\newblock Reasoning-driven large language models in medicine: opportunities, challenges, and the road ahead.
+\newblock \emph{The Lancet Digital Health}, 8\penalty0 (1):\penalty0 100931, 2026.
+\newblock \doi{10.1016/j.landig.2025.100931}.
+
+\bibitem[{OpenAI}(2025)]{openai2025o3o4mini}
+{OpenAI}.
+\newblock Introducing {OpenAI} o3 and o4-mini.
+\newblock \url{https://openai.com/index/introducing-o3-and-o4-mini/}, 2025.
+\newblock Accessed: 2025.
+
+\bibitem[Dilmegani(2025)]{dilmegani2025aimultiple}
+Cem Dilmegani.
+\newblock Compare 9 large language models in healthcare.
+\newblock \url{https://aimultiple.com/large-language-models-in-healthcare}, 2025.
+\newblock Industry benchmark survey; accessed 2025.
+
+\bibitem[Budhkar et~al.(2025)Budhkar, Song, Su, and Zhang]{budhkar2025survey}
+Aishwarya Budhkar, Qianqian Song, Jing Su, and Xuhong Zhang.
+\newblock Demystifying the black box: A survey on explainable artificial intelligence ({XAI}) in bioinformatics.
+\newblock \emph{Computational and Structural Biotechnology Journal}, 27:\penalty0 346--359, 2025.
+\newblock \doi{10.1016/j.csbj.2024.12.027}.
+
+\bibitem[Suh et~al.(2025)Suh, Hurley, Smith, and Siu]{suh2025fewer}
+Ashley Suh, Isabelle Hurley, Nora Smith, and Ho~Chit Siu.
+\newblock Fewer than 1\% of explainable {AI} papers validate explainability with humans.
+\newblock In \emph{Extended Abstracts of the 2025 {CHI} Conference on Human Factors in Computing Systems}. ACM, 2025.
+
+\bibitem[Holzinger et~al.(2020)Holzinger, Carrington, and M{\"u}ller]{holzinger2020measuring}
+Andreas Holzinger, Andre Carrington, and Heimo M{\"u}ller.
+\newblock Measuring the quality of explanations: The system causability scale ({SCS}).
+\newblock \emph{KI -- K{\"u}nstliche Intelligenz}, 34:\penalty0 193--198, 2020.
+\newblock \doi{10.1007/s13218-020-00636-z}.
+
+\bibitem[Kim et~al.(2024)Kim, Maathuis, and Sent]{kim2024human}
+Jinyoung Kim, Henk Maathuis, and Danielle Sent.
+\newblock Human-centered evaluation of explainable {AI} applications: a systematic review.
+\newblock \emph{Frontiers in Artificial Intelligence}, 7:\penalty0 1456486, 2024.
+\newblock \doi{10.3389/frai.2024.1456486}.
+
+\bibitem[Jung et~al.(2025)Jung, Kang, Choi, El-Kareh, Lee, and Kim]{jung2025evaluating}
+Jinsun Jung, Sunghoon Kang, Jeeyae Choi, Robert El-Kareh, Hyungbok Lee, and Hyeoneui Kim.
+\newblock Evaluating the impact of explainable {AI} on clinicians' decision-making: {A} study on {ICU} length of stay prediction.
+\newblock \emph{International Journal of Medical Informatics}, 2025.
+
+\bibitem[Zhang et~al.(2023)Zhang, Hu, Hua, Zhang, Zhang, and Yang]{zhang2023}
+Yang Zhang, Juanjuan Hu, Tianfeng Hua, Jin Zhang, Zhongheng Zhang, and Min Yang.
+\newblock Development of a machine learning-based prediction model for sepsis-associated delirium in the intensive care unit.
+\newblock \emph{Scientific Reports}, 13:\penalty0 12697, 2023.
+\newblock \doi{10.1038/s41598-023-38650-4}.
+
+\bibitem[{OLVG Laboratorium}(2024)]{olvg2024}
+{OLVG Laboratorium}.
+\newblock Referentiewaarden.
+\newblock \url{https://olvglab.nl/voor-zorgverleners/bepalingen-en-referentiewaarden/referentiewaarden/}, 2024.
+\newblock Accessed: 2024.
+
+\end{thebibliography}

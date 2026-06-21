@@ -1,0 +1,23 @@
+seq_num,icd_code,icd_version,long_title
+1,1629,9,"Malignant neoplasm of bronchus and lung, unspecified"
+2,486,9,"Pneumonia, organism unspecified"
+3,70723,9,"Pressure ulcer, stage III"
+4,34280,9,Other specified hemiplegia and hemiparesis affecting unspecified side
+5,6825,9,Cellulitis and abscess of buttock
+6,42832,9,Chronic diastolic heart failure
+7,42731,9,Atrial fibrillation
+8,V4576,9,"Acquired absence of organ, lung"
+9,4168,9,Other chronic pulmonary heart diseases
+10,7140,9,Rheumatoid arthritis
+11,30000,9,"Anxiety state, unspecified"
+12,4019,9,Unspecified essential hypertension
+13,V1582,9,Personal history of tobacco use
+14,70705,9,"Pressure ulcer, buttock"
+15,70707,9,"Pressure ulcer, heel"
+16,70720,9,"Pressure ulcer, unspecified stage"
+17,4280,9,"Congestive heart failure, unspecified"
+18,34590,9,"Epilepsy, unspecified, without mention of intractable epilepsy"
+19,V4986,9,Do not resuscitate status
+20,V667,9,Encounter for palliative care
+21,7885,9,Oliguria and anuria
+22,04112,9,Methicillin resistant Staphylococcus aureus in conditions classified elsewhere and of unspecified site
