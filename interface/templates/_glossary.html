@@ -1,0 +1,36 @@
+<details class="glossary">
+  <summary class="glossary-toggle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="2.2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    Toelichting patiëntgegevens
+    <svg class="glossary-chevron" xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </summary>
+  <div class="glossary-grid">
+    {% for item in glossary %}
+    <div class="glossary-item">
+      <div class="glossary-item-header">
+        <div class="glossary-label">{{ item.label }}</div>
+        {% if item.waarde is not none %}
+          {% if item.is_binary %}
+            <span class="patient-badge {{ 'badge-aanwezig' if item.actief else 'badge-afwezig' }}">
+              {{ item.waarde }}
+            </span>
+          {% else %}
+            <span class="patient-badge badge-value">{{ item.waarde }}</span>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="glossary-desc">{{ item.uitleg }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</details>

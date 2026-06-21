@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% set title = "Redeneer-vragen – patiënt #" ~ patient_id %}
+
+{% block content %}
+
+<!-- Stap-indicator -->
+<div class="step-bar">
+  <span class="step-pill step-done">
+    <i data-lucide="check" style="width:13px;height:13px;"></i> Patiëntprofiel
+  </span>
+  <span class="step-sep"><i data-lucide="chevron-right"></i></span>
+  <span class="step-pill step-active">
+    <span class="step-num">2</span> Redeneer-vragen
+  </span>
+  <span class="step-sep"><i data-lucide="chevron-right"></i></span>
+  <span class="step-pill step-pending">
+    <span class="step-num">3</span> Voorspelling
+  </span>
+</div>
+
+<!-- Instructie -->
+<div class="card card-tinted" style="margin-bottom:20px;">
+  <div class="notice-row">
+    <div class="notice-icon">
+      <i data-lucide="message-square"></i>
+    </div>
+    <div>
+      <div class="notice-title">Vragen vóór de AI-uitslag</div>
+      <p class="notice-body">
+        Beantwoord de onderstaande vragen op basis van het patiëntprofiel dat u zojuist
+        heeft bekeken, <em>vóórdat</em> u de modeluitslag ziet. Uw antwoorden helpen uw
+        klinische redenering scherp te stellen en worden teruggekoppeld nadat de
+        voorspelling is getoond.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Formulier -->
+<form method="post" action="/patient/{{ patient_id }}/vragen" id="vragenForm">
+
+  {% for v in vragen %}
+  <div class="ff-vraag">
+    <div class="ff-vraag-num">Vraag {{ loop.index }}</div>
+    <div class="ff-vraag-tekst">{{ v.vraag }}</div>
+
+    {% if v.type == "radio" %}
+      {% for optie in v.opties %}
+      <label class="ff-optie">
+        <input type="radio" name="{{ v.id }}" value="{{ optie }}" required>
+        <span>{{ optie }}</span>
+      </label>
+      {% endfor %}
+
+    {% elif v.type == "checkbox" %}
+      {% for optie in v.opties %}
+      <label class="ff-optie">
+        <input type="checkbox" name="{{ v.id }}" value="{{ optie }}">
+        <span>{{ optie }}</span>
+      </label>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <div class="btn-row" style="margin-top:24px;">
+    <a href="/patient/{{ patient_id }}" class="btn btn-secondary">
+      <i data-lucide="chevron-left" style="width:15px;height:15px;margin-right:4px;"></i>
+      Terug
+    </a>
+    <button type="submit" class="btn btn-primary">
+      Verstuur en bekijk voorspelling
+      <i data-lucide="chevron-right" style="width:15px;height:15px;margin-left:4px;"></i>
+    </button>
+  </div>
+
+</form>
+
+<script>
+document.getElementById("vragenForm").addEventListener("submit", function(e) {
+  const radios = ["v1", "v3"];
+  for (const name of radios) {
+    if (!document.querySelector(`input[name="${name}"]:checked`)) {
+      e.preventDefault();
+      alert("Beantwoord alle verplichte vragen voordat u verder gaat.");
+      return;
+    }
+  }
+});
+</script>
+
+{% endblock %}

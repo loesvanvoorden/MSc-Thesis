@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% set title = "Beheer" %}
+
+{% block content %}
+
+{% if not logged_in %}
+
+<!-- ── Login ── -->
+<div class="index-hero" style="margin-bottom: 0;">
+  <h1>Beheerdersingang</h1>
+  <p>Alleen toegankelijk voor de onderzoeker.</p>
+</div>
+
+<form method="post" action="/admin">
+  <div class="card" style="margin-top: 24px; max-width: 400px;">
+
+    {% if error %}
+    <div style="color:#c0392b; font-size:13px; margin-bottom:14px; padding:10px 14px;
+                background:#fdf0ee; border-radius:6px; border-left:3px solid #c0392b;">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="form-question">Wachtwoord</div>
+    <input type="password" name="password" autofocus
+           placeholder="Beheerderswachtwoord"
+           style="width:100%; padding:9px 12px; font-size:14px; border:1px solid var(--gray-200);
+                  border-radius:6px; outline:none; box-sizing:border-box; margin-top:6px;">
+
+    <div class="btn-row" style="margin-top: 18px;">
+      <button type="submit" class="btn btn-primary">Inloggen</button>
+    </div>
+  </div>
+</form>
+
+{% else %}
+
+{% from "_participant_antwoorden.html" import participant_detail_card %}
+
+<!-- ── Dashboard ── -->
+<div class="index-hero" style="margin-bottom: 0;">
+  <h1>Beheer – Antwoorden</h1>
+  <p>
+    <strong>{{ rows | length }}</strong> deelnemer(s) geregistreerd &nbsp;·&nbsp;
+    Groep A: <strong>{{ n_a }}</strong> &nbsp;·&nbsp;
+    Groep B: <strong>{{ n_b }}</strong>
+  </p>
+</div>
+
+<div style="margin: 16px 0 20px; display:flex; gap:10px; flex-wrap:wrap;">
+  <a href="/admin/download" class="btn btn-secondary">
+    <i data-lucide="download" style="width:15px;height:15px;margin-right:6px;"></i>
+    Download CSV
+  </a>
+  <a href="/admin/logout" class="btn btn-secondary" style="margin-left:auto;">
+    <i data-lucide="log-out" style="width:15px;height:15px;margin-right:6px;"></i>
+    Uitloggen
+  </a>
+</div>
+
+{% if rows %}
+<p style="font-size:13px; color:var(--gray-500); margin: 0 0 16px; max-width:52rem; line-height:1.45;">
+  Hieronder alle opgeslagen velden per deelnemer (inclusief vrije tekst, CAS en voor groep&nbsp;B het LLM-gesprek).
+  Download <a href="/admin/download">CSV</a> voor ruwe export met alle databankkolommen.
+  <span style="display:block; margin-top:6px;">Tip: klik op de kopregel van een deelnemer om details in of uit te klappen.</span>
+</p>
+{% for p in rows %}
+  {{ participant_detail_card(p) }}
+{% endfor %}
+{% else %}
+<div class="card card-tinted">
+  <p style="font-size:14px; color:var(--gray-600); margin:0;">
+    Nog geen deelnemers geregistreerd.
+  </p>
+</div>
+{% endif %}
+
+{% endif %}
+
+{% endblock %}
