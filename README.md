@@ -80,3 +80,8 @@ Master's thesis deliverables (MSc Data Science in Business and Entrepreneurship)
 **Thesis:** `cd Thesis && ./compile_thesis.sh`
 
 **Study app (local):** `cd interface && pip install -r requirements.txt && python app.py`
+
+## Visual for context
+
+<img width="3286" height="1680" alt="image" src="https://github.com/user-attachments/assets/b9f9abd6-dc7e-4860-9798-40aaf6100a90" />
+
